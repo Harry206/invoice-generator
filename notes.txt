@@ -1,0 +1,41 @@
+📦 Installed Packages 
+react-router-dom
+Used for routing & navigation in React
+Creates multiple pages without page reload
+Example: /login, /dashboard, /invoice
+
+axios
+Used for HTTP requests
+Connects frontend with backend APIs
+Easier and cleaner than fetch()
+
+bootstrap
+CSS framework for styling
+Provides ready-made components like forms, buttons, tables
+Helps build responsive UI quickly
+
+lucide-react
+Icon library for React
+Provides modern SVG icons (add, edit, delete, download)
+Used only for UI enhancement
+
+html2canvas
+Converts HTML/React component into canvas/image
+Used to capture invoice UI
+
+jspdf
+Generates PDF files in browser
+Commonly used with html2canvas
+Enables invoice download as PDF
+
+react-hot-toast
+Displays toast notifications
+Used for success/error/info messages
+Improves user experience
+
+@clerk/clerk-react
+Provides authentication & user management
+Handles login, signup, logout
+Helps maintain user sessions securely
+
+----------------------------------------------------------

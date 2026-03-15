@@ -1,0 +1,174 @@
+* {
+  box-sizing: border-box;
+}
+
+/* MAIN CARD */
+
+.template2 {
+  max-width: 850px;
+  margin: auto;
+  padding: 50px;
+  background: #ffffff;
+  border-radius: 6px;
+  font-family: "Inter", sans-serif;
+  color: #222;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+}
+
+/* HEADER */
+
+.t2-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 20px;
+}
+
+.t2-logo {
+  width: 60px;
+  margin-bottom: 10px;
+}
+
+.t2-company h2 {
+  margin-bottom: 6px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.t2-company p {
+  font-size: 14px;
+  color: #555;
+}
+
+.t2-invoice {
+  text-align: right;
+}
+
+.t2-invoice h1 {
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.t2-invoice p {
+  font-size: 14px;
+  color: #444;
+}
+
+/* BILLING */
+
+.t2-billing {
+  display: flex;
+  gap: 80px;
+  margin-bottom: 40px;
+}
+
+.t2-box h4 {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 6px;
+  letter-spacing: 1px;
+}
+
+.t2-name {
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+/* TABLE */
+
+.t2-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 40px;
+  font-size: 14px;
+}
+
+.t2-table thead {
+  border-bottom: 2px solid #111;
+}
+
+.t2-table th {
+  text-align: left;
+  padding-bottom: 10px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #666;
+}
+
+.t2-table td {
+  padding: 14px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.t2-table tbody tr:hover {
+  background: #fafafa;
+}
+
+.right {
+  text-align: right;
+}
+
+/* TOTALS */
+
+.t2-totals {
+  width: 280px;
+  margin-left: auto;
+  font-size: 14px;
+}
+
+.t2-totals div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.t2-grand {
+  font-weight: 700;
+  border-top: 2px solid #111;
+  padding-top: 12px;
+  margin-top: 12px;
+  font-size: 16px;
+}
+
+/* EXTRA SECTIONS */
+
+.t2-section {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.t2-section h4 {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.t2-section p {
+  font-size: 14px;
+  color: #444;
+}
+
+/* PRINT */
+
+@media print {
+  body {
+    background: white;
+  }
+
+  .template1,
+  .template2,
+  .template3,
+  .template4 {
+    box-shadow: none;
+    margin: 0;
+  }
+}

@@ -1,0 +1,143 @@
+*{
+  box-sizing:border-box;
+}
+
+.template4{
+  max-width:900px;
+  margin:auto;
+  background:#f3f4f6;
+  font-family:"Inter",sans-serif;
+  box-shadow:0 12px 30px rgba(0,0,0,0.15);
+}
+
+/* TOP SECTION */
+
+.t4-top{
+  display:flex;
+}
+
+/* LEFT PANEL */
+
+.t4-left{
+  width:55%;
+  padding:45px;
+  background:#e5e7eb;
+}
+
+.t4-logo{
+  width:70px;
+  margin-bottom:15px;
+}
+
+.invoice-to{
+  margin-top:30px;
+}
+
+.invoice-to h4{
+  font-size:13px;
+  color:#6b7280;
+  margin-bottom:6px;
+}
+
+.name{
+  font-weight:600;
+}
+
+/* DUE TOTAL BOX */
+
+.due-box{
+  margin-top:30px;
+  background:#d1d5db;
+  padding:14px 18px;
+  font-weight:600;
+  width:240px;
+}
+
+/* RIGHT PANEL */
+
+.t4-right{
+  width:45%;
+  padding:45px;
+  background:#3a3a3a;
+  color:white;
+}
+
+.t4-right h1{
+  margin-bottom:20px;
+  letter-spacing:2px;
+}
+
+.meta p{
+  margin-bottom:8px;
+}
+
+/* TABLE */
+
+.t4-table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:30px;
+  font-size:15px;
+}
+
+.t4-table thead{
+  background:#3a3a3a;
+  color:white;
+}
+
+.t4-table th{
+  padding:16px;
+  text-align:left;
+}
+
+.t4-table td{
+  padding:18px 16px;
+  border-bottom:1px solid #e5e7eb;
+}
+
+.t4-table th:nth-child(2),
+.t4-table th:nth-child(3),
+.t4-table th:nth-child(4),
+.t4-table td:nth-child(2),
+.t4-table td:nth-child(3),
+.t4-table td:nth-child(4){
+  text-align:center;
+}
+
+/* TOTAL SECTION */
+
+.t4-bottom{
+  display:flex;
+  justify-content:flex-end;
+  padding:50px 45px;
+}
+
+/* TOTALS ROW */
+
+.totals{
+  display:flex;
+  gap:60px;
+  align-items:center;
+  font-size:16px;
+}
+
+.totals div{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.totals span:first-child{
+  color:#6b7280;
+  margin-bottom:6px;
+}
+
+/* GRAND TOTAL */
+
+.grand{
+  background:#3a3a3a;
+  color:white;
+  padding:18px 28px;
+  font-weight:700;
+  font-size:18px;
+}

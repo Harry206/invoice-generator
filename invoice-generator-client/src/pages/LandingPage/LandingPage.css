@@ -1,0 +1,63 @@
+/* Hero Section Background */
+.hero-section {
+  min-height: 90vh;
+  background: linear-gradient(
+    135deg,
+    #0d6efd 0%,
+    #4f8cff 50%,
+    #6ea8fe 100%
+  );
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 73vh;
+
+}
+
+/* Optional subtle background glow */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: rgba(255, 255, 255, 0.1);
+  filter: blur(120px);
+  top: -200px;
+  right: -200px;
+  border-radius: 50%;
+}
+
+/* Headline Styling */
+.hero-section h1 {
+  letter-spacing: -1px;
+}
+
+/* Paragraph improvement */
+.hero-section p {
+  opacity: 0.95;
+}
+
+/* Button hover polish */
+.hero-section .btn-warning {
+  transition: all 0.3s ease;
+}
+
+.hero-section .btn-warning:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.footer-section {
+  background-color: #0d6efd;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-warning {
+  transition: all 0.2s ease;
+}
+
+.btn-warning:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
