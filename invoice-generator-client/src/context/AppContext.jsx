@@ -66,7 +66,7 @@ export const AppContextProvider = ({ children }) => {
   });
   const [selectedTemplate, setSelectedTemplate] = useState("modern");
 
-  const baseURL = "http://localhost:8080";
+  const baseURL = import.meta.env.VITE_API_URL;
 
   const contextValue = {
     invoiceTitle,

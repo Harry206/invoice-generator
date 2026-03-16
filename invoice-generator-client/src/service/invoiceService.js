@@ -1,13 +1,15 @@
 import axios from "axios";
 
-export const saveInvoice = async (baseURL, payload) => {
-  return axios.post(`${baseURL}/api/invoices`, payload);
+const API_BASE = import.meta.env.VITE_API_URL;
+
+export const saveInvoice = async (payload) => {
+  return axios.post(`${API_BASE}/api/invoices`, payload);
 };
 
-export const getInvoices = async (baseURL) => {
-  return axios.get(`${baseURL}/api/invoices`);
+export const getInvoices = async () => {
+  return axios.get(`${API_BASE}/api/invoices`);
 };
 
-export const deleteInvoice = async (baseURL, id) => {
-  return axios.delete(`${baseURL}/api/invoices/${id}`);
+export const deleteInvoice = async (id) => {
+  return axios.delete(`${API_BASE}/api/invoices/${id}`);
 };
