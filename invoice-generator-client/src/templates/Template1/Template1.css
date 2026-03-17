@@ -13,29 +13,25 @@
 /* HEADER */
 
 .t1-header{
-  position:relative;
   background:#1d4ed8;
   color:white;
   padding:40px;
-  display:flex;
-  justify-content:space-between;
+
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items:center;
 }
 
+.header-left{
+  text-align:left;
+}
+
 .header-center{
-  position:absolute;
-  left:50%;
-  transform:translateX(-50%);
   text-align:center;
 }
 
-
-.header-center h1{
-  margin-bottom:6px;
-}
-
-.header-center h2{
-  font-weight:500;
+.header-right{
+  text-align:right;
 }
 
 /* INFO */
@@ -98,4 +94,10 @@
 
 .t1-notes{
   padding:0 40px 40px 40px;
+}
+
+.header-left,
+.header-right{
+  word-break: break-word;
+  max-width: 250px;
 }

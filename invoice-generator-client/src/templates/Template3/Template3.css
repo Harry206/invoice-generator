@@ -165,18 +165,3 @@
   font-size: 14px;
 }
 
-/* PRINT */
-
-@media print {
-  body {
-    background: white;
-  }
-
-  .template1,
-  .template2,
-  .template3,
-  .template4 {
-    box-shadow: none;
-    margin: 0;
-  }
-}
