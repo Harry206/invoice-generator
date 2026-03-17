@@ -15,6 +15,7 @@ public class Invoice {
     private Long id;
 
     private String notes;
+    @Column(columnDefinition = "LONGTEXT")
     private String logo;
     private Double tax;
 
