@@ -10,7 +10,7 @@ const Dashboard = () => {
 
   const fetchInvoices = async () => {
     try {
-      const res = await getInvoices(baseURL);
+      const res = await getInvoices();
       setInvoices(res.data);
     } catch (error) {
       console.error("Error fetching invoices:", error);
@@ -19,7 +19,7 @@ const Dashboard = () => {
 
   const handleDelete = async (id) => {
     try {
-      await deleteInvoice(baseURL, id);
+      await deleteInvoice(id);
       setInvoices(invoices.filter((inv) => inv.id !== id));
     } catch (error) {
       console.error("Error deleting invoice:", error);

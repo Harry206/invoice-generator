@@ -13,8 +13,13 @@ const PreviewPage = () => {
   const location = useLocation();
   const invoiceFromDashboard = location.state?.invoice;
 
-  const { selectedTemplate, setSelectedTemplate, invoiceData, baseURL } =
-    useContext(AppContext);
+  const {
+    selectedTemplate,
+    setSelectedTemplate,
+    invoiceData,
+    setInvoiceData,
+    baseURL,
+  } = useContext(AppContext);
 
   const finalInvoiceData = invoiceFromDashboard || invoiceData;
 
@@ -37,31 +42,54 @@ const PreviewPage = () => {
       const thumbnail = canvas.toDataURL("image/png");
 
       const payload = {
-        id: invoiceData.id ?? null,
-        title: invoiceData.title ?? "",
+        id: finalInvoiceData.id ?? null,
+        title: finalInvoiceData.title ?? "",
 
-        company: invoiceData.company ?? { name: "", address: "", phone: "" },
-        billing: invoiceData.billing ?? { name: "", address: "", phone: "" },
-        shipping: invoiceData.shipping ?? { name: "", address: "", phone: "" },
+        company: finalInvoiceData.company ?? {
+          name: "",
+          address: "",
+          phone: "",
+        },
+        billing: finalInvoiceData.billing ?? {
+          name: "",
+          address: "",
+          phone: "",
+        },
+        shipping: finalInvoiceData.shipping ?? {
+          name: "",
+          address: "",
+          phone: "",
+        },
 
-        invoice: invoiceData.invoice ?? { number: "", date: "", dueDate: "" },
+        invoice: finalInvoiceData.invoice ?? {
+          number: "",
+          date: "",
+          dueDate: "",
+        },
 
-        items: (invoiceData.items ?? []).map((item) => ({
+        items: (finalInvoiceData.items ?? []).map((item) => ({
           name: item.name ?? "",
           description: item.description ?? "",
-          qty: item.qty ?? 0,
-          amount: item.amount ?? 0,
+          qty: Number(item.qty) || 0,
+          amount: Number(item.amount) || 0,
         })),
 
-        notes: invoiceData.notes ?? "",
-        logo: invoiceData.logo ?? "",
-        tax: invoiceData.tax ?? 0,
+        notes: finalInvoiceData.notes ?? "",
+        logo: finalInvoiceData.logo ?? "",
+        tax: finalInvoiceData.tax ?? 0,
         template: selectedTemplate ?? "",
 
         thumbnailUrl: thumbnail, // ✅ THIS is the fix
       };
 
-      const response = await saveInvoice(baseURL, payload);
+      const response = await saveInvoice(payload);
+
+      const savedInvoice = response.data;
+
+      setInvoiceData((prev) => ({
+        ...prev,
+        id: savedInvoice.id,
+      }));
 
       if (response.status === 200) {
         if (payload.id) {
@@ -109,8 +137,7 @@ const PreviewPage = () => {
     try {
       const element = previewRef.current;
 
-      const canvas = await html2canvas(element, { scale: 1.5 });
-
+      const canvas = await html2canvas(element, { scale: 1 });
       const imageData = canvas.toDataURL("image/png");
 
       const pdf = new jsPDF("p", "mm", "a4");
@@ -123,16 +150,24 @@ const PreviewPage = () => {
       const pdfBlob = pdf.output("blob");
 
       const formData = new FormData();
+
       formData.append("file", pdfBlob, "invoice.pdf");
 
       const email = prompt("Enter client email:");
+      if (!email) {
+        alert("Email is required");
+        return;
+      }
 
       formData.append("email", email);
 
-      const response = await fetch(`${baseURL}/api/invoices/send-email`, {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/invoices/send-email`,
+        {
+          method: "POST",
+          body: formData, // ✅ IMPORTANT
+        },
+      );
 
       const message = await response.text();
 
@@ -150,9 +185,15 @@ const PreviewPage = () => {
 
     if (!confirmDelete) return;
 
-    try {
-      await deleteInvoice(baseURL, invoiceData.id);
+    console.log("Delete clicked", finalInvoiceData.id);
 
+    if (!finalInvoiceData.id) {
+      toast.error("Invoice not saved yet!");
+      return;
+    }
+
+    try {
+      await deleteInvoice(finalInvoiceData.id);
       toast.success("Invoice deleted successfully!");
       navigate("/dashboard");
     } catch (error) {
