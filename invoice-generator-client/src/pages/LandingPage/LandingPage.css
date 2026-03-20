@@ -1,6 +1,6 @@
 /* Hero Section Background */
 .hero-section {
-  min-height: 90vh;
+  min-height: calc(100vh - 70px); /* adjust 70px to your navbar height */
   background: linear-gradient(
     135deg,
     #0d6efd 0%,
@@ -9,10 +9,9 @@
   );
   display: flex;
   align-items: center;
+  justify-content: center; /* center content nicely */
   position: relative;
   overflow: hidden;
-  min-height: 73vh;
-
 }
 
 /* Optional subtle background glow */
